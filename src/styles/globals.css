@@ -1,0 +1,11 @@
+@import url(https://fonts.bunny.net/css?family=epilogue:200,300,400,700,800,900|work-sans:100,200,300,700,800,900);
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#__next {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
