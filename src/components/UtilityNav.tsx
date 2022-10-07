@@ -10,6 +10,7 @@ import {
   SiGithubsponsors,
 } from "react-icons/si";
 import React from "react";
+import { useKBar } from "kbar";
 
 const ExtraItems = [
   {
@@ -50,12 +51,13 @@ const ExtraItems = [
 ];
 
 export default function UtilNavBar() {
+  const { query } = useKBar();
   return (
     <div className="w-full min-h-full h-full flex flex-col justify-start items-center ">
       <div className="border-r-2 border-zinc-800 h-full mb-4"></div>
       <div className="flex flex-col gap-4">
         <button
-          className="w-full flex justify-center items-center bg-zinc-800 hover:bg-zinc-700 shadow hover:shadow-xl rounded hover:scale-110 duration-300 ease-in-out focus:bg-zinc-700"
+          className="w-full flex justify-center items-center bg-zinc-800 hover:bg-zinc-700 shadow hover:shadow-xl rounded hover:scale-110 duration-300 ease-in-out"
           //   onClick={() => router.push(item.slug)}
         >
           <div className="p-2">
@@ -63,8 +65,9 @@ export default function UtilNavBar() {
           </div>
         </button>
         <button
-          className="w-full flex justify-center items-center bg-zinc-800 hover:bg-zinc-700 shadow hover:shadow-xl rounded hover:scale-110 duration-300 ease-in-out focus:bg-zinc-700"
+          className="w-full flex justify-center items-center bg-zinc-800 hover:bg-zinc-700 shadow hover:shadow-xl rounded hover:scale-110 duration-300 ease-in-out"
           //   onClick={() => router.push(item.slug)}
+          onClick={query.toggle}
         >
           <div className="p-2">
             <FiCommand size="1rem" className="text-zinc-100" />

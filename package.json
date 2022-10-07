@@ -18,8 +18,10 @@
     "@trpc/react": "^9.27.1",
     "@trpc/server": "^9.27.1",
     "axios": "^0.27.2",
+    "kbar": "0.1.0-beta.36",
     "next": "12.2.5",
     "next-auth": "^4.10.3",
+    "nextjs-progressbar": "^0.0.14",
     "nprogress": "^0.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -32,6 +34,7 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.7",
+    "@types/next-nprogress": "^1.4.1",
     "@types/node": "18.0.0",
     "@types/react": "18.0.14",
     "@types/react-dom": "18.0.5",

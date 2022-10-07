@@ -6,6 +6,9 @@ import {
   FiHeadphones,
   FiUser,
   FiGlobe,
+  FiMonitor,
+  FiBookOpen,
+  FiCode,
 } from "react-icons/fi";
 import { useRouter } from "next/router";
 import React from "react";
@@ -38,20 +41,26 @@ const NavbarItems = [
   //   icon: FiKey,
   // },
   {
-    name: "Projects",
-    slug: "/projects",
-    icon: FiPaperclip,
+    name: "Guestbook",
+    slug: "/guestbook",
+    icon: FiBookOpen,
   },
   {
     name: "Spotify",
     slug: "/spotify",
     icon: FiHeadphones,
   },
+  {
+    name: "Tech᠎  ᠎ Stack",
+    slug: "/tech-stack",
+    icon: FiCode,
+  },
 ];
 
 export default function NavBar({ path }: { path: string }) {
   const router = useRouter();
   const [tooltipVisibility, setTooltipVisibility] = useState([
+    false,
     false,
     false,
     false,
@@ -85,7 +94,7 @@ export default function NavBar({ path }: { path: string }) {
                     <item.icon size="1rem" className="text-zinc-100" />
                   </div>
                   {tooltipVisibility[index] && (
-                    <span className="absolute text-[0.75rem] leading-none left-10 p-[0.62rem] rounded shadow-xl text-zinc-200 bg-zinc-700">
+                    <span className="absolute min-w-full text-[0.75rem] leading-none left-10 p-[0.62rem] rounded shadow-xl text-zinc-200 bg-zinc-700">
                       {item.name}
                     </span>
                   )}
