@@ -1,11 +1,8 @@
 // src/server/router/context.ts
 import * as trpc from "@trpc/server";
 import * as trpcNext from "@trpc/server/adapters/next";
-import {
-  Session,
-  unstable_getServerSession as getServerSession,
-} from "next-auth";
-import { authOptions as nextAuthOptions } from "../../pages/api/auth/[...nextauth]";
+import { Session } from "next-auth";
+import { getServerAuthSession } from "../common/get-server-auth-session";
 import { prisma } from "../db/client";
 
 type CreateContextOptions = {
@@ -13,7 +10,7 @@ type CreateContextOptions = {
 };
 
 /** Use this helper for:
- * - testing, where we dont have to Mock Next.js' req/res
+ * - testing, so we dont have to mock Next.js' req/res
  * - trpc's `createSSGHelpers` where we don't have req/res
  **/
 export const createContextInner = async (opts: CreateContextOptions) => {
@@ -30,13 +27,14 @@ export const createContextInner = async (opts: CreateContextOptions) => {
 export const createContext = async (
   opts: trpcNext.CreateNextContextOptions,
 ) => {
-  const session = await getServerSession(opts.req, opts.res, nextAuthOptions);
+  const { req, res } = opts;
+
+  // Get the session from the server using the unstable_getServerSession wrapper function
+  const session = await getServerAuthSession({ req, res });
 
   return await createContextInner({
     session,
   });
 };
 
-type Context = trpc.inferAsyncReturnType<typeof createContext>;
-
-export const createRouter = () => trpc.router<Context>();
+export type Context = trpc.inferAsyncReturnType<typeof createContext>;
