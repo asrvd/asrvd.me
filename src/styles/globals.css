@@ -11,14 +11,10 @@
   overflow-x: hidden;
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-body::-webkit-scrollbar {
-  display: none;
-}
-
-/* Hide scrollbar for IE, Edge and Firefox */
-body {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-  margin: 0 !important;
+@layer base {
+  body,
+  html {
+    @apply scrollbar-thin scrollbar-thumb-rounded-lg scrollbar-track-transparent dark:scrollbar-thumb-zinc-800 scrollbar-thumb-zinc-500;
+    scroll-behavior: smooth;
+  }
 }

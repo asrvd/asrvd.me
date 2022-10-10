@@ -1,18 +1,18 @@
 import {
   FiHome,
-  FiPenTool,
   FiClock,
   FiPaperclip,
   FiHeadphones,
   FiUser,
-  FiGlobe,
-  FiMonitor,
   FiBookOpen,
-  FiCode,
+  FiSun,
+  FiMoon,
+  FiCommand,
 } from "react-icons/fi";
 import { useRouter } from "next/router";
 import React from "react";
 import { useState } from "react";
+import { useKBar } from "kbar";
 
 const NavbarItems = [
   {
@@ -31,9 +31,9 @@ const NavbarItems = [
     icon: FiClock,
   },
   {
-    name: "Contact",
-    slug: "/contact",
-    icon: FiGlobe,
+    name: "Links",
+    slug: "/links",
+    icon: FiPaperclip,
   },
   // {
   //   name: "About",
@@ -50,17 +50,12 @@ const NavbarItems = [
     slug: "/spotify",
     icon: FiHeadphones,
   },
-  {
-    name: "Tech᠎  ᠎ Stack",
-    slug: "/tech-stack",
-    icon: FiCode,
-  },
 ];
 
 export default function NavBar({ path }: { path: string }) {
   const router = useRouter();
+  const { query } = useKBar();
   const [tooltipVisibility, setTooltipVisibility] = useState([
-    false,
     false,
     false,
     false,
@@ -128,6 +123,25 @@ export default function NavBar({ path }: { path: string }) {
             </>
           );
         })}
+        <div className="flex flex-col gap-4">
+          <button
+            className="w-full flex justify-center items-center bg-zinc-800 hover:bg-zinc-700 shadow hover:shadow-xl rounded hover:scale-110 duration-300 ease-in-out"
+            //   onClick={() => router.push(item.slug)}
+          >
+            <div className="p-2">
+              <FiSun size="1rem" className="text-zinc-100" />
+            </div>
+          </button>
+          <button
+            className="w-full flex justify-center items-center bg-zinc-800 hover:bg-zinc-700 shadow hover:shadow-xl rounded hover:scale-110 duration-300 ease-in-out"
+            //   onClick={() => router.push(item.slug)}
+            onClick={query.toggle}
+          >
+            <div className="p-2">
+              <FiCommand size="1rem" className="text-zinc-100" />
+            </div>
+          </button>
+        </div>
       </div>
       <div className="border-r-2 border-zinc-800 h-full mt-4"></div>
     </div>

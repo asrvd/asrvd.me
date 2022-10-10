@@ -1,17 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
 import type { NextPage } from "next";
 // import Head from "next/head";
-import { trpc } from "../utils/trpc";
 import Layout from "../components/Layout";
 import axios from "axios";
 import { FiHeart, FiStar, FiGitBranch } from "react-icons/fi";
+import Footer from "../components/Footer";
 
 const Home: NextPage = (props) => {
-  const hello = trpc.useQuery(["example.hello", { text: "from tRPC" }]);
-  console.log(props);
   return (
     <Layout>
-      <div className="w-full h-full p-8 flex flex-col">
+      <div className="w-full h-full p-8 flex flex-col justify-center items-center relative">
         <section className="flex w-full justify-between gap-14 mb-20 mt-16 lg:mt-0 md:mt-0">
           <div className="leading-none">
             <h2 className="text-zinc-200 text-[2.5rem] font-extrabold">
@@ -20,8 +18,7 @@ const Home: NextPage = (props) => {
             <p className="text-zinc-300 mb-4">Solo developer kinda student</p>
             <p className="text-zinc-400 text-sm">
               Learning about web and trying to make help out other devs. I love
-              open source and writing about tech occasionally. I hate people who
-              overuse caps and large line heights.
+              open source and writing about tech occasionally.
             </p>
           </div>
           <div className="min-w-fit hidden lg:block md:block">
@@ -97,6 +94,7 @@ const Home: NextPage = (props) => {
             ))}
           </div>
         </section>
+        <Footer />
       </div>
     </Layout>
   );

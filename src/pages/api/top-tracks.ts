@@ -1,18 +1,25 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { NextApiRequest, NextApiResponse } from "next";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
+import type { NextRequest } from "next/server";
 import { getTopTracks } from "../../lib/spotify";
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export const config = {
+  runtime: "experimental-edge",
+};
+
+export default async function handler(req: NextRequest) {
   const resp = await getTopTracks();
 
   if (resp.status !== 200) {
-    res.status(resp.status).json(resp.data);
+    return new Response(JSON.stringify(await resp.json()), {
+      status: resp.status,
+    });
   }
 
-  const tracks = resp.data.toptracks.track;
+  const response = await resp.json();
+
+  const tracks = response.toptracks.track;
 
   const topTracks = tracks.map((track: any) => {
     return {
@@ -23,12 +30,11 @@ export default async function handler(
     };
   });
 
-  res
-    .status(200)
-    .setHeader(
-      "Cache-Control",
-      "public, s-maxage=86400, stale-while-revalidate"
-    )
-    .json(topTracks);
-  res.end();
+  return new Response(JSON.stringify(topTracks), {
+    status: 200,
+    headers: {
+      "Content-Type": "application/json",
+      "cache-control": "public, s-maxage=86400",
+    },
+  });
 }

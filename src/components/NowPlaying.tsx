@@ -42,9 +42,9 @@ export default function NowPlaying() {
           </a>
         </div>
       </div>
-      <div className="h-20 w-20 justify-center items-center hidden lg:flex md:flex">
+      <div className="h-16 w-16 lg:h-20 lg:w-20 md:w-20 md:h-20 justify-center items-center flex">
         <img
-          className="rounded-lg object-fit"
+          className="rounded-lg object-fit shadow-lg"
           src={data?.imageURL}
           alt={data?.songName}
         />

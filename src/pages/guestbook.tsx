@@ -1,10 +1,11 @@
 import Layout from "../components/Layout";
 import GuestbookComponent from "../components/Guestbook";
+import Footer from "../components/Footer";
 
 export default function Guestbook() {
   return (
     <Layout>
-      <div className="w-full min-h-full h-full p-8 flex flex-col">
+      <div className="w-full min-h-screen h-full p-8 flex flex-col items-center relative">
         <section className="flex flex-col w-full justify-between mt-16 lg:mt-0 md:mt-0 prose">
           <h1 className="text-zinc-200 leading-none mb-3">Guestbook</h1>
           <p className="text-zinc-400 m-0 leading-tight">
@@ -13,6 +14,7 @@ export default function Guestbook() {
           </p>
           <GuestbookComponent />
         </section>
+        <Footer />
       </div>
     </Layout>
   );

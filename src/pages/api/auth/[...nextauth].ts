@@ -6,6 +6,10 @@ import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { prisma } from "../../../server/db/client";
 import { env } from "../../../env/server.mjs";
 
+export const config = {
+  runtime: 'nodejs'
+};
+
 export const authOptions: NextAuthOptions = {
   // Include user.id on session
   callbacks: {

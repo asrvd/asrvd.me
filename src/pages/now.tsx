@@ -1,6 +1,7 @@
 import Layout from "../components/Layout";
 import fs from "fs";
 import showdown from "showdown";
+import Footer from "../components/Footer";
 
 export default function Now(props: {
   html: string;
@@ -8,7 +9,7 @@ export default function Now(props: {
 }) {
   return (
     <Layout>
-      <div className="w-full min-h-full h-full p-8 flex flex-col">
+      <div className="w-full min-h-screen h-full p-8 flex flex-col items-center relative">
         <section className="flex flex-col w-full justify-between gap-6 mt-16 lg:mt-0 md:mt-0 prose">
           <div
             className="prose w-full prose-zinc dark:prose-invert leading-none prose-h1:mb-1 prose-h2:mt-0 prose-h3:mt-0 prose-h1:text-zinc-200 prose-h4:font-normal prose-p:text-sm prose-h2:text-zinc-300 prose-h3:text-zinc-400 prose-h4:mt-0 prose-h4:text-zinc-400 "
@@ -21,6 +22,7 @@ export default function Now(props: {
             </span>
           </p>
         </section>
+        <Footer />
       </div>
     </Layout>
   );
