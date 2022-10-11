@@ -37,8 +37,7 @@ export default function Layout({
         <meta property="og:site-name" content="ashish" />
         <meta
           property="og:title"
-          content={`asrvd
-          ${
+          content={`asrvd${
             currentRoute.slice(1).length > 1
               ? ` // ${currentRoute.slice(1)}`
               : ``
@@ -48,8 +47,7 @@ export default function Layout({
         <meta property="og:description" content={description} />
         <meta
           property="twitter:title"
-          content={`asrvd
-          ${
+          content={`asrvd${
             currentRoute.slice(1).length > 1
               ? ` // ${currentRoute.slice(1)}`
               : ``

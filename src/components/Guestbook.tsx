@@ -103,7 +103,7 @@ export default function GuestbookComponent() {
           {!loading ? (
             messages?.map((message) => (
               <div
-                className="flex flex-col gap-2 hover:bg-zinc-800/40 hover:shadow-xl duration-200 p-4 rounded-lg cursor-pointer"
+                className="flex flex-col gap-2 hover:bg-zinc-800/40 hover:shadow-xl duration-200 p-4 rounded-lg"
                 key={message.id}
               >
                 <p className="text-zinc-200 text-base m-0 break-all">

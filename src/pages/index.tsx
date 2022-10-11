@@ -22,7 +22,7 @@ const Home = (props: { latestPosts: Blog[]; pinnedRepos: Repo[] }) => {
               Solo developer kinda student
             </p>
             <p className="text-zinc-400 text-sm m-0">
-              Learning about web and trying to make help out other devs. I love
+              Learning about web and trying to help out other devs in the process. I love
               open source and writing about tech occasionally.
             </p>
           </div>
