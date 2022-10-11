@@ -1,11 +1,11 @@
 ---
-publish_date: 23 September, 2022
+publish_date: 11 October, 2022
 ---
 
 #Now
 #### The answer to "What are you upto these days?"
 
-I have been very busy lately and am finding it hard to focus on important things. I had been procrastinating since months on building this personal site but I finally decided to do it. So, by the time you read this page, I would still be working on this site.
+I have been very busy lately and am finding it hard to focus on important things. I had been procrastinating since months on building this personal site but I finally decided to do it. So, by the time you read this page, I would have completed working on this site or maybe still working on it 🤔.
 
 I'm also trying to start learning Rust and get into Mobile App Development using React Native. But to be honest, I'm just procrastinating on these things. I hope I start doing them after finishing my personal site.
 

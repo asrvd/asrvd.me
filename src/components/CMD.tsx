@@ -16,8 +16,8 @@ import React from "react";
 export default function Palette() {
   return (
     <KBarPortal>
-      <KBarPositioner className="z-50 select-none backdrop-blur bg-zinc-800/30 font-epilogue">
-        <KBarAnimator className="w-[44%] overflow-hidden text-lg text-white bg-zinc-100 rounded-lg dark:bg-zinc-900 min-w-500 shadow-xl">
+      <KBarPositioner className="z-50 select-none backdrop-blur bg-zinc-800/30 font-epilogue overflow-hidden">
+        <KBarAnimator className="w-[90%] lg:w-[44%] md:w-2/3 overflow-hidden text-lg text-white bg-zinc-100 rounded-lg dark:bg-zinc-900 min-w-500 shadow-xl kbar">
           <KBarSearch className="w-full p-3 text-sm text-gray-900 bg-gray-100 rounded-lg outline-none dark:bg-zinc-900 dark:text-zinc-200" />
           <RenderResults />
         </KBarAnimator>
@@ -34,7 +34,7 @@ function RenderResults() {
       items={results}
       onRender={({ item, active }) =>
         typeof item === "string" ? (
-          <div className="w-full h-full p-3 text-sm text-gray-900 bg-gray-100 rounded-lg outline-none dark:bg-zinc-900 dark:text-zinc-200 cursor-pointer ">
+          <div className="w-full h-full p-3 text-xs text-gray-700 uppercase dark:text-zinc-500 cursor-pointer">
             {item}
           </div>
         ) : (
@@ -74,12 +74,14 @@ const ResultItem = React.forwardRef(
       <div
         ref={ref}
         className={`py-2 px-3 flex align-center justify-between cursor-pointer transition-all ${
-          active ? "bg-zinc-100 dark:bg-zinc-900 hover:dark:bg-zinc-800 hover:bg-zinc-200 duration-200" : "transparent"
+          active
+            ? "bg-zinc-100 dark:bg-zinc-800 hover:dark:bg-zinc-800 hover:bg-zinc-200 duration-200"
+            : "transparent"
         }`}
       >
         <div className="flex items-center gap-3">
           <div className="flex flex-col text-sm text-gray-900 dark:text-zinc-200">
-            <div>
+            <div className="flex gap-2">
               {ancestors.length > 0 &&
                 ancestors.map((ancestor) => (
                   <div key={ancestor.id} className="text-zinc-500">

@@ -1,16 +1,10 @@
 import Layout from "../components/Layout";
-import fs from "fs";
-import showdown from "showdown";
 import Footer from "../components/Footer";
 import LinksComponent from "../components/Links";
 
-// type ContactProps = {
-//   html: string;
-// };
-
 export default function Links() {
   return (
-    <Layout>
+    <Layout emoji="😽" description="all of my links in one place">
       <div className="w-full min-h-screen h-full p-8 flex flex-col items-center relative">
         <section className="flex flex-col w-full justify-between mt-16 lg:mt-0 md:mt-0 prose gap-6 mb-12">
           <div>
@@ -25,16 +19,4 @@ export default function Links() {
       </div>
     </Layout>
   );
-}
-
-export async function getStaticProps() {
-  const markdown = fs.readFileSync("src/content/contact.md", "utf8");
-  const converter = new showdown.Converter({ metadata: true });
-  const html = converter.makeHtml(markdown);
-
-  return {
-    props: {
-      html,
-    },
-  };
 }

@@ -13,8 +13,12 @@
 
 @layer base {
   body,
-  html {
+  html,
+  .kbar {
     @apply scrollbar-thin scrollbar-thumb-rounded-lg scrollbar-track-transparent dark:scrollbar-thumb-zinc-800 scrollbar-thumb-zinc-500;
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    margin: 0 !important;
+    color-scheme: dark;
   }
 }

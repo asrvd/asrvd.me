@@ -1,14 +1,15 @@
 import {
   FiHome,
-  FiPenTool,
   FiClock,
-  FiPhoneCall,
   FiPaperclip,
   FiHeadphones,
   FiUser,
-  FiGlobe,
+  FiBookOpen,
+  FiSun,
+  FiCommand,
 } from "react-icons/fi";
 import { useRouter } from "next/router";
+import { useKBar } from "kbar";
 
 const NavbarItems = [
   {
@@ -27,19 +28,14 @@ const NavbarItems = [
     icon: FiClock,
   },
   {
-    name: "Contact",
-    slug: "/contact",
-    icon: FiGlobe,
-  },
-  // {
-  //   name: "About",
-  //   slug: "/about",
-  //   icon: FiKey,
-  // },
-  {
-    name: "Projects",
-    slug: "/projects",
+    name: "Links",
+    slug: "/links",
     icon: FiPaperclip,
+  },
+  {
+    name: "Guestbook",
+    slug: "/guestbook",
+    icon: FiBookOpen,
   },
   {
     name: "Spotify",
@@ -49,10 +45,11 @@ const NavbarItems = [
 ];
 
 export default function MobileNavBar({ path }: { path: string }) {
+  const { query } = useKBar();
   const router = useRouter();
   return (
-    <div className="w-full min-h-full h-full flex bg-zinc-800/50 justify-center items-center py-1 rounded-lg shadow-xl">
-      <div className="flex justify-evenly gap-4">
+    <div className="min-w-full min-h-full h-full flex overflow-x-scroll bg-zinc-800/50 justify-center items-center py-1 rounded-lg shadow-xl gap-4">
+      <div className="flex justify-evenly gap-4 pl-24">
         {NavbarItems.map((item, index) => {
           return (
             <button
@@ -60,21 +57,40 @@ export default function MobileNavBar({ path }: { path: string }) {
               className="w-full h-12 flex justify-center items-center"
             >
               {path === item.slug ? (
-                  <item.icon
-                    size="2rem"
-                    className="text-zinc-100 rounded bg-zinc-700 hover:bg-zinc-700 py-2 cursor-pointer hover:scale-110 duration-300 ease-in-out shadow hover:shadow-xl"
-                    onClick={() => router.push(item.slug)}
-                  />
+                <item.icon
+                  size="2rem"
+                  className="text-zinc-100 rounded bg-zinc-700 hover:bg-zinc-700 py-2 cursor-pointer hover:scale-110 duration-300 ease-in-out shadow hover:shadow-xl"
+                  onClick={() => router.push(item.slug)}
+                />
               ) : (
-                  <item.icon
-                    size="2rem"
-                    className="text-zinc-100 rounded bg-zinc-800 hover:bg-zinc-700 py-2 cursor-pointer hover:scale-110 duration-300 ease-in-out shadow hover:shadow-xl"
-                    onClick={() => router.push(item.slug)}
-                  />
+                <item.icon
+                  size="2rem"
+                  className="text-zinc-100 rounded bg-zinc-800 hover:bg-zinc-700 py-2 cursor-pointer hover:scale-110 duration-300 ease-in-out shadow hover:shadow-xl"
+                  onClick={() => router.push(item.slug)}
+                />
               )}
             </button>
           );
         })}
+      </div>
+      <div className="flex gap-4 pr-4">
+        <button
+          className="w-full flex justify-center items-center bg-zinc-800 hover:bg-zinc-700 shadow hover:shadow-xl rounded hover:scale-110 duration-300 ease-in-out"
+          //   onClick={() => router.push(item.slug)}
+        >
+          <div className="p-2">
+            <FiSun size="1rem" className="text-zinc-100" />
+          </div>
+        </button>
+        <button
+          className="w-full flex justify-center items-center bg-zinc-800 hover:bg-zinc-700 shadow hover:shadow-xl rounded hover:scale-110 duration-300 ease-in-out"
+          //   onClick={() => router.push(item.slug)}
+          onClick={query.toggle}
+        >
+          <div className="p-2">
+            <FiCommand size="1rem" className="text-zinc-100" />
+          </div>
+        </button>
       </div>
     </div>
   );

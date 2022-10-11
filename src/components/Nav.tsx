@@ -6,7 +6,7 @@ import {
   FiUser,
   FiBookOpen,
   FiSun,
-  FiMoon,
+  // FiMoon,
   FiCommand,
 } from "react-icons/fi";
 import { useRouter } from "next/router";

@@ -10,7 +10,7 @@ export default function LinksComponent() {
             className="flex justify-between items-center bg-zinc-900/60 duration-200 p-2 rounded-lg hover:shadow-lg cursor-pointer w-full hover:-translate-y-1"
             onClick={() => window.open(link.url, "_blank")}
           >
-            <p className="text-zinc-300 m-0">
+            <p className="text-zinc-300 m-0 text-sm lg:text-base md:text-base">
               {link.name} <span className="text-zinc-600">{" // "}</span>{" "}
               {link.value}
             </p>

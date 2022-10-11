@@ -12,10 +12,6 @@ export const serverSchema = z.object({
   NEXTAUTH_URL: z.string().url(),
   DISCORD_CLIENT_ID: z.string(),
   DISCORD_CLIENT_SECRET: z.string(),
-  SPOTIFY_CLIENT_ID: z.string(),
-  SPOTIFY_CLIENT_SECRET: z.string(),
-  SPOTIFY_REFRESH_TOKEN: z.string(),
-  SPOTIFY_TOKEN: z.string(),
   LASTFM_API_KEY: z.string(),
 });
 

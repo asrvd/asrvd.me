@@ -18,3 +18,22 @@ export type TopTracksResponse = {
   url: string;
   artist: string;
 };
+
+export type Blog = {
+  slug: string;
+  url: string;
+  title: string;
+  public_reactions_count: number;
+};
+
+export type RecentBlogs = Blog[];
+
+export type Repo = {
+  name: string;
+  description: string;
+  url: string;
+  stars: number;
+  forks: number;
+};
+
+export type PinnedRepos = Repo[];
