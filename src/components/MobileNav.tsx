@@ -7,9 +7,11 @@ import {
   FiBookOpen,
   FiSun,
   FiCommand,
+  FiMoon,
 } from "react-icons/fi";
 import { useRouter } from "next/router";
 import { useKBar } from "kbar";
+import { useState } from "react";
 
 const NavbarItems = [
   {
@@ -47,6 +49,13 @@ const NavbarItems = [
 export default function MobileNavBar({ path }: { path: string }) {
   const { query } = useKBar();
   const router = useRouter();
+  const [themeIcon, setThemeIcon] = useState("dark");
+
+  function handleThemeBtnCLick() {
+    // console.log("ok")
+    themeIcon === "dark" ? setThemeIcon("light") : setThemeIcon("dark");
+  }
+
   return (
     <div className="min-w-full min-h-full h-full flex overflow-x-scroll bg-zinc-800/50 justify-center items-center py-1 rounded-lg shadow-xl gap-4">
       <div className="flex justify-evenly gap-4 pl-24">
@@ -76,10 +85,10 @@ export default function MobileNavBar({ path }: { path: string }) {
       <div className="flex gap-4 pr-4">
         <button
           className="w-full flex justify-center items-center bg-zinc-800 hover:bg-zinc-700 shadow hover:shadow-xl rounded hover:scale-110 duration-300 ease-in-out"
-          //   onClick={() => router.push(item.slug)}
+          onClick={() => handleThemeBtnCLick()}
         >
           <div className="p-2">
-            <FiSun size="1rem" className="text-zinc-100" />
+            {themeIcon === "dark" ? <FiSun /> : <FiMoon />}
           </div>
         </button>
         <button

@@ -6,7 +6,7 @@ import {
   FiUser,
   FiBookOpen,
   FiSun,
-  // FiMoon,
+  FiMoon,
   FiCommand,
 } from "react-icons/fi";
 import { useRouter } from "next/router";
@@ -55,6 +55,7 @@ const NavbarItems = [
 export default function NavBar({ path }: { path: string }) {
   const router = useRouter();
   const { query } = useKBar();
+  const [themeIcon, setThemeIcon] = useState("dark");
   const [tooltipVisibility, setTooltipVisibility] = useState([
     false,
     false,
@@ -63,6 +64,12 @@ export default function NavBar({ path }: { path: string }) {
     false,
     false,
   ]);
+
+  function handleThemeBtnCLick() {
+    // console.log("ok")
+    themeIcon === "dark" ? setThemeIcon("light") : setThemeIcon("dark");
+  }
+
   return (
     <div className="w-full min-h-full h-full flex flex-col justify-start items-center pt-6">
       <div className="flex flex-col gap-4">
@@ -126,10 +133,10 @@ export default function NavBar({ path }: { path: string }) {
         <div className="flex flex-col gap-4">
           <button
             className="w-full flex justify-center items-center bg-zinc-800 hover:bg-zinc-700 shadow hover:shadow-xl rounded hover:scale-110 duration-300 ease-in-out"
-            //   onClick={() => router.push(item.slug)}
+            onClick={() => handleThemeBtnCLick()}
           >
-            <div className="p-2">
-              <FiSun size="1rem" className="text-zinc-100" />
+            <div className="p-2 text-zinc-100">
+              {themeIcon === "dark" ? <FiSun /> : <FiMoon />}
             </div>
           </button>
           <button

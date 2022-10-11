@@ -34,7 +34,7 @@ export default function Layout({
         </title>
         <meta name="description" content={description} />
         <meta name="theme-color" content="#27272a" />
-        <meta property="og:site-name" content="ashish" />
+        <meta property="og:site_name" content="ashish" />
         <meta
           property="og:title"
           content={`asrvd${
@@ -54,6 +54,10 @@ export default function Layout({
           }`}
         />
         <meta property="twitter:description" content={description} />
+        <meta property="og:image" content="/img/og-image.png" />
+        <meta property="twitter:image" content="/img/og-image.png" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:site" content="@asheeshh_" />
       </Head>
       <KBarProvider actions={actions}>
         <main className="flex selection:bg-zinc-200/30 flex-col overflow-x-hidden min-h-screen items-center bg-zinc-900 font-epilogue max-h-auto relative">
