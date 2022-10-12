@@ -1,10 +1,13 @@
 import type { PinnedRepos } from "../lib/types";
-import { FiStar, FiGitBranch } from "react-icons/fi";
+import { FiStar, FiGitBranch, FiArrowRight } from "react-icons/fi";
 
 export default function PinnedRepos(props: { pinnedRepos: PinnedRepos }) {
   return (
     <section className="flex flex-col w-full gap-6 mb-10 prose">
-      <h2 className="text-zinc-200 text-[2.5rem] font-extrabold leading-none m-0" id="projects">
+      <h2
+        className="text-zinc-200 text-[2.5rem] font-extrabold leading-none m-0"
+        id="projects"
+      >
         Top Projects
       </h2>
       <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 w-full gap-6">
@@ -39,6 +42,17 @@ export default function PinnedRepos(props: { pinnedRepos: PinnedRepos }) {
           </a>
         ))}
       </div>
+      <a
+        href="https://github.com/asrvd?tab=repositories"
+        target="_blank"
+        rel="noreferrer"
+        className="flex group gap-2 items-center duration-200 text-zinc-500 cursor-pointer no-underline hover:text-zinc-400 "
+      >
+        View More{" "}
+        <span className="group-hover:translate-x-1 duration-200">
+          <FiArrowRight />
+        </span>
+      </a>
     </section>
   );
 }
