@@ -6,9 +6,13 @@ import { useState } from "react";
 import { SiDiscord } from "react-icons/si";
 import { FiLogOut, FiSend } from "react-icons/fi";
 import { clsx } from "clsx";
+import { toast } from "react-hot-toast";
 
 const inputSchema = z.object({
-  text: z.string().min(1).max(100),
+  text: z
+    .string()
+    .min(1, { message: "Message is empty!" })
+    .max(100, { message: "Message should not be more than 100 characters!" }),
 });
 
 export default function GuestbookComponent() {
@@ -36,13 +40,20 @@ export default function GuestbookComponent() {
 
   function handleSubmit() {
     setLoading(true);
-    const input = inputSchema.safeParse({ text: message });
+    const id = toast.loading("Sending message...");
+    const input = inputSchema.safeParse({ text: message.trim() });
     if (!input.success) {
-      alert("Invalid input");
+      // alert("Invalid input");
+      toast.error(input.error.issues[0]?.message as string, {
+        id,
+      });
       setLoading(false);
       return;
     }
     guestbook.mutate(input.data);
+    toast.success("Message sent!", {
+      id,
+    });
     setMessage("");
     setLoading(false);
   }

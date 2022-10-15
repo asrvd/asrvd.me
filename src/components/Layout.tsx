@@ -8,6 +8,7 @@ import MobileNavBar from "./MobileNav";
 import { KBarProvider } from "kbar";
 import Palette from "./CMD";
 import { actions } from "../lib/actions";
+import { Toaster } from "react-hot-toast";
 
 export default function Layout({
   children,
@@ -73,6 +74,14 @@ export default function Layout({
           </div>
         </main>
       </KBarProvider>
+      <Toaster
+        toastOptions={{
+          style: {
+            background: "#27272a",
+            color: "#e4e4e7",
+          },
+        }}
+      />
     </div>
   );
 }
