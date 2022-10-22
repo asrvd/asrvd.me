@@ -50,6 +50,7 @@ export async function getStaticProps() {
       latestPosts: latestPosts,
       pinnedRepos: pinnedRepos,
     },
+    revalidate: 43200,
   };
 }
 

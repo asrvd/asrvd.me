@@ -4,6 +4,7 @@ import useSWR from "swr";
 
 export default function TopTracks() {
   const { data } = useSWR<TopTracksResponse[]>("/api/top-tracks", fetcher);
+  
   return (
     <div className="bg-gradient-to-r from-neutral-800 to-zinc-800 rounded-lg shadow-xl p-4 flex flex-col justify-between gap-2">
       <div>

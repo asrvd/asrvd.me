@@ -21,6 +21,7 @@ export default function GuestbookComponent() {
   const { data: session, status } = useSession();
   const { data: messages } = trpc.guestbook.getAllMessages.useQuery();
   const ctx = trpc.useContext();
+  
   const guestbook = trpc.guestbook.addMessage.useMutation({
     onMutate: () => {
       ctx.guestbook.getAllMessages.cancel();
