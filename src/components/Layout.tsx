@@ -59,6 +59,12 @@ export default function Layout({
         <meta property="twitter:image" content="/img/og-image.png" />
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:site" content="@asheeshh_" />
+        <script
+          async
+          defer
+          data-website-id="82db8ab0-57c7-4ce0-bc6d-b18f8d63e2a3"
+          src="https://u.asrvd.me/umami.js"
+        ></script>
       </Head>
       <KBarProvider actions={actions}>
         <main className="flex selection:bg-zinc-200/30 flex-col overflow-x-hidden min-h-screen items-center bg-zinc-900 font-epilogue max-h-auto relative">
