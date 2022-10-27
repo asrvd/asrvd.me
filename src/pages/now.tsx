@@ -12,12 +12,12 @@ export default function Now(props: {
       <div className="w-full min-h-screen h-full p-8 flex flex-col items-center relative">
         <section className="flex flex-col w-full justify-between gap-6 mt-16 lg:mt-0 md:mt-0 prose">
           <div
-            className="prose w-full prose-zinc dark:prose-invert leading-none prose-h1:mb-0 prose-h2:mt-0 prose-h3:mt-0 prose-h1:text-zinc-200 prose-h4:font-normal prose-p:text-sm prose-h2:text-zinc-300 prose-h3:text-zinc-400 prose-h4:mt-0 prose-h4:text-zinc-400 prose-h4:mb-4"
+            className="prose w-full prose-zinc dark:prose-invert leading-none prose-h1:mb-0 prose-h2:mt-0 prose-h3:mt-0 dark:prose-h1:text-zinc-200 prose-h1:text-zinc-900 prose-h4:font-normal prose-p:text-sm dark:prose-h2:text-zinc-300 prose-h2:text-zinc-800 dark:prose-h3:text-zinc-400 prose-h3:text-zinc-800 prose-h4:mt-0 dark:prose-h4:text-zinc-400 prose-h4:text-zinc-700 prose-h4:mb-4 prose-p:text-zinc-700 dark:prose-p:text-zinc-200 prose-a:decoration-wavy"
             dangerouslySetInnerHTML={{ __html: props.html }}
           />
-          <p className="text-zinc-400 text-[0.6rem]">
+          <p className="dark:text-zinc-400 text-zinc-600 text-[0.6rem]">
             Last Updated{" "}
-            <span className="text-zinc-300 underline decoration-dotted underline-offset-4 text-[0.6rem]">
+            <span className="dark:text-zinc-300 text-zinc-700 underline decoration-dotted underline-offset-4 text-[0.6rem]">
               {props.metadata.publish_date}
             </span>
           </p>

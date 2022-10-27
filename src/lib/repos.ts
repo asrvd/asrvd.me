@@ -4,13 +4,13 @@ import axios from "axios";
 
 export async function getPinnedRepos() {
   const res = await axios.get(
-    "https://gh-pinned-repos.egoist.sh/?username=asrvd"
+    "https://ghpr.asrvd.me/asrvd"
   );
   const repos = res.data;
 
   return repos.map((repo: any) => {
     return {
-      name: repo.repo,
+      name: repo.name,
       description: repo.description,
       url: repo.link,
       stars: repo.stars,

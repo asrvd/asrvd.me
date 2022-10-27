@@ -63,15 +63,15 @@ export default function GuestbookComponent() {
     <>
       <div className="w-full min-h-full h-full py-6 flex flex-col">
         {session?.user ? (
-          <div className="flex flex-col gap-4 bg-zinc-800 p-4 rounded-lg shadow-xl">
+          <div className="flex flex-col gap-4 dark:bg-zinc-800 bg-zinc-200 p-4 rounded-lg shadow-xl">
             <textarea
-              className="w-full h-32 p-2 rounded-md bg-zinc-900 text-zinc-200 text-sm focus:border-none focus:ring-4 ring-zinc-600 border-none ring-0"
+              className="w-full h-32 p-2 rounded-md dark:bg-zinc-900 bg-zinc-100 dark:text-zinc-200 text-zinc-800 text-sm focus:border-none border-none ring-0"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
             />
             <div className="flex gap-4 justify-evenly items-center w-auto">
               <button
-                className="w-full px-6 py-2 rounded-md bg-zinc-900 text-zinc-200 hover:shadow-xl duration-200"
+                className="w-full px-6 py-2 rounded-md dark:bg-zinc-900 bg-zinc-100 dark:text-zinc-200 text-zinc-800 hover:shadow-xl duration-200"
                 onClick={handleSubmit}
                 disabled={loading}
               >
@@ -79,7 +79,7 @@ export default function GuestbookComponent() {
                 {loading ? "Loading..." : "Send It"}
               </button>
               <button
-                className="w-full max-w-max px-6 py-2 rounded-md bg-zinc-900 text-zinc-200 hover:shadow-xl duration-200"
+                className="w-full max-w-max px-6 py-2 rounded-md dark:bg-zinc-900 bg-zinc-100 dark:text-zinc-200 text-zinc-800 hover:shadow-xl duration-200"
                 onClick={() => signOut()}
               >
                 <FiLogOut className="inline-block mr-2" />
@@ -90,20 +90,20 @@ export default function GuestbookComponent() {
         ) : (
           <div
             className={clsx({
-              "flex flex-col rounded-lg bg-gradient-to-r from-neutral-800 to-zinc-800 p-4 gap-2 shadow-xl":
+              "flex flex-col rounded-lg dark:bg-gradient-to-r dark:from-neutral-800 dark:to-zinc-800 bg-gradient-to-r from-neutral-200 to-zinc-200 p-4 gap-2 shadow-xl":
                 status === "unauthenticated",
-              "flex flex-col rounded-lg bg-gradient-to-r from-neutral-800 to-zinc-800 p-4 gap-2 shadow-xl animate-pulse":
+              "flex flex-col rounded-lg dark:bg-gradient-to-r dark:from-neutral-800 dark:to-zinc-800 bg-gradient-to-r from-neutral-200 to-zinc-200 p-4 gap-2 shadow-xl animate-pulse":
                 status === "loading",
             })}
           >
             <div>
-              <h3 className="text-zinc-200 m-0">Leave a Message 👇</h3>
-              <p className="text-zinc-300 m-0 text-sm">
+              <h3 className="dark:text-zinc-200 text-zinc-800 m-0">Leave a Message 👇</h3>
+              <p className="dark:text-zinc-300 text-zinc-700 m-0 text-sm">
                 You need to be signed in to post a message.
               </p>
             </div>
             <button
-              className="max-w-max rounded-lg bg-zinc-900 text-zinc-100 py-2 px-6 hover:shadow-xl duration-200 "
+              className="max-w-max rounded-lg dark:bg-zinc-900 bg-zinc-100 dark:text-zinc-100 text-zinc-900 py-2 px-6 hover:shadow-xl duration-200 "
               onClick={() => signIn("discord")}
             >
               <SiDiscord className="inline-block mr-2" />
@@ -115,13 +115,13 @@ export default function GuestbookComponent() {
           {!loading ? (
             messages?.map((message) => (
               <div
-                className="flex flex-col gap-2 hover:bg-zinc-800/40 hover:shadow-xl duration-200 p-4 rounded-lg"
+                className="flex flex-col gap-2 dark:hover:bg-zinc-800/40 hover:bg-zinc-300/40 hover:shadow-xl duration-200 p-4 rounded-lg"
                 key={message.id}
               >
-                <p className="text-zinc-200 text-base m-0 break-all">
+                <p className="dark:text-zinc-200 text-zinc-800 text-base m-0 break-all">
                   {message.text}
                 </p>
-                <div className="flex justify-start items-center gap-4 text-zinc-400 text-sm">
+                <div className="flex justify-start items-center gap-4 dark:text-zinc-400 text-zinc-700 text-sm">
                   <p className="m-0">by {message.authorName}</p>•
                   <p className="m-0">
                     on{" "}

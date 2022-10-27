@@ -34,7 +34,10 @@ function RenderResults() {
       items={results}
       onRender={({ item, active }) =>
         typeof item === "string" ? (
-          <div className="w-full h-full p-3 text-xs text-gray-700 uppercase dark:text-zinc-500 cursor-pointer">
+          <div
+            className="w-full h-full p-3 text-xs text-gray-700 uppercase dark:text-zinc-500 cursor-pointer"
+            key={item}
+          >
             {item}
           </div>
         ) : (
@@ -102,7 +105,7 @@ const ResultItem = React.forwardRef(
             {action.shortcut.map((sc) => (
               <kbd
                 key={sc}
-                className="px-2 py-1 ml-2 text-sm bg-zinc-300 rounded dark:bg-zinc-700 dark:text-zinc-300 h-fit"
+                className="px-2 py-1 ml-2 text-sm bg-zinc-300 rounded dark:bg-zinc-700 dark:text-zinc-300 text-zinc-600 h-fit"
               >
                 {sc}
               </kbd>

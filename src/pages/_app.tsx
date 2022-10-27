@@ -5,6 +5,7 @@ import type { Session } from "next-auth";
 import type { AppType } from "next/app";
 import { trpc } from "../utils/trpc";
 import NextNProgress from "nextjs-progressbar";
+import { ThemeProvider } from "next-themes";
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -16,7 +17,9 @@ const MyApp: AppType<{ session: Session | null }> = ({
         color={"#a1a1aa"}
         options={{ showSpinner: false, easing: "ease" }}
       />
-      <Component {...pageProps} />
+      <ThemeProvider defaultTheme="dark" attribute="class">
+        <Component {...pageProps} />
+      </ThemeProvider>
     </SessionProvider>
   );
 };

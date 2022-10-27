@@ -11,19 +11,22 @@ import type { Blog, Repo } from "../lib/types";
 
 const Home = (props: { latestPosts: Blog[]; pinnedRepos: Repo[] }) => {
   return (
-    <Layout emoji="😺" description="ashish//asrvd, student and web developer from India">
+    <Layout
+      emoji="😺"
+      description="ashish//asrvd, student and web developer from India"
+    >
       <div className="w-full h-full p-8 flex flex-col justify-center items-center relative">
         <section className="flex flex-col-reverse lg:flex-row md:flex-row w-full justify-between items-start mb-20 mt-16 lg:mt-0 md:mt-0 gap-4 lg:gap-14 md:gap-8 prose">
           <div className="leading-none">
-            <h2 className="text-zinc-200 text-[2.5rem] font-extrabold m-0">
+            <h2 className="dark:text-zinc-200 text-zinc-900 text-[2.5rem] font-extrabold m-0">
               Ashish
             </h2>
-            <p className="text-zinc-300 mb-4 m-0">
+            <p className="dark:text-zinc-300 text-zinc-800 mb-4 m-0">
               Solo developer kinda student
             </p>
-            <p className="text-zinc-400 text-sm m-0">
-              Learning about web and trying to help out other devs in the process. I love
-              open source and writing about tech occasionally.
+            <p className="dark:text-zinc-400 text-zinc-700 text-sm m-0">
+              Learning about web and trying to help out other devs in the
+              process. I love open source and writing about tech occasionally.
             </p>
           </div>
           <div className="min-w-fit">

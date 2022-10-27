@@ -13,6 +13,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import { useState } from "react";
 import { useKBar } from "kbar";
+import { useTheme } from "next-themes";
 
 const NavbarItems = [
   {
@@ -54,8 +55,8 @@ const NavbarItems = [
 
 export default function NavBar({ path }: { path: string }) {
   const router = useRouter();
+  const { theme, setTheme } = useTheme();
   const { query } = useKBar();
-  const [themeIcon, setThemeIcon] = useState("dark");
   const [tooltipVisibility, setTooltipVisibility] = useState([
     false,
     false,
@@ -65,10 +66,10 @@ export default function NavBar({ path }: { path: string }) {
     false,
   ]);
 
-  function handleThemeBtnCLick() {
-    // console.log("ok")
-    themeIcon === "dark" ? setThemeIcon("light") : setThemeIcon("dark");
-  }
+  // function handleThemeBtnCLick() {
+  //   // console.log("ok")
+  //   themeIcon === "dark" ? setThemeIcon("light") : setThemeIcon("dark");
+  // }
 
   return (
     <div className="w-full min-h-full h-full flex flex-col justify-start items-center pt-6">
@@ -79,7 +80,7 @@ export default function NavBar({ path }: { path: string }) {
               {path === item.slug ? (
                 <button
                   key={index}
-                  className="w-full flex justify-center items-center bg-zinc-700 hover:bg-zinc-700 shadow hover:shadow-xl rounded hover:scale-110 duration-300 ease-in-out focus:bg-zinc-700 relative"
+                  className="w-full flex justify-center items-center dark:bg-zinc-700 bg-zinc-800 dark:hover:bg-zinc-700 hover:bg-zinc-800 focus:bg-zinc-800 shadow hover:shadow-xl rounded hover:scale-110 duration-300 ease-in-out dark:focus:bg-zinc-700 relative"
                   onMouseLeave={() => {
                     const temp = [...tooltipVisibility];
                     temp[index] = false;
@@ -96,7 +97,7 @@ export default function NavBar({ path }: { path: string }) {
                     <item.icon size="1rem" className="text-zinc-100" />
                   </div>
                   {tooltipVisibility[index] && (
-                    <span className="absolute min-w-full text-[0.75rem] leading-none left-10 p-[0.62rem] rounded shadow-xl text-zinc-200 bg-zinc-700">
+                    <span className="absolute min-w-full text-[0.75rem] leading-none left-10 p-[0.62rem] rounded shadow-xl text-zinc-200 dark:bg-zinc-700 bg-zinc-800">
                       {item.name}
                     </span>
                   )}
@@ -104,7 +105,7 @@ export default function NavBar({ path }: { path: string }) {
               ) : (
                 <button
                   key={index}
-                  className="w-full flex justify-center items-center bg-zinc-800 hover:bg-zinc-700 shadow hover:shadow-xl rounded hover:scale-110 duration-300 ease-in-out focus:bg-zinc-700 relative"
+                  className="w-full flex justify-center items-center dark:bg-zinc-800 dark:hover:bg-zinc-700 shadow hover:shadow-xl rounded hover:scale-110 duration-300 ease-in-out dark:focus:bg-zinc-700 bg-zinc-700 hover:bg-zinc-800 focus:bg-zinc-800 relative"
                   onMouseLeave={() => {
                     const temp = [...tooltipVisibility];
                     temp[index] = false;
@@ -121,7 +122,7 @@ export default function NavBar({ path }: { path: string }) {
                     <item.icon size="1rem" className="text-zinc-100" />
                   </div>
                   {tooltipVisibility[index] && (
-                    <span className="absolute text-[0.75rem] leading-none left-10 p-[0.62rem] rounded shadow-xl text-zinc-200 bg-zinc-700">
+                    <span className="absolute text-[0.75rem] leading-none left-10 p-[0.62rem] rounded shadow-xl text-zinc-200 dark:bg-zinc-700 bg-zinc-800">
                       {item.name}
                     </span>
                   )}
@@ -132,15 +133,15 @@ export default function NavBar({ path }: { path: string }) {
         })}
         <div className="flex flex-col gap-4">
           <button
-            className="w-full flex justify-center items-center bg-zinc-800 hover:bg-zinc-700 shadow hover:shadow-xl rounded hover:scale-110 duration-300 ease-in-out"
-            onClick={() => handleThemeBtnCLick()}
+            className="w-full flex justify-center items-center dark:bg-zinc-800 dark:hover:bg-zinc-700 bg-zinc-700 hover:bg-zinc-800 shadow hover:shadow-xl rounded hover:scale-110 duration-300 ease-in-out"
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           >
             <div className="p-2 text-zinc-100">
-              {themeIcon === "dark" ? <FiSun /> : <FiMoon />}
+              {theme === "dark" ? <FiSun /> : <FiMoon />}
             </div>
           </button>
           <button
-            className="w-full flex justify-center items-center bg-zinc-800 hover:bg-zinc-700 shadow hover:shadow-xl rounded hover:scale-110 duration-300 ease-in-out"
+            className="w-full flex justify-center items-center dark:bg-zinc-800 dark:hover:bg-zinc-700 bg-zinc-700 hover:bg-zinc-800 shadow hover:shadow-xl rounded hover:scale-110 duration-300 ease-in-out"
             //   onClick={() => router.push(item.slug)}
             onClick={query.toggle}
           >
@@ -150,7 +151,7 @@ export default function NavBar({ path }: { path: string }) {
           </button>
         </div>
       </div>
-      <div className="border-r-2 border-zinc-800 h-full mt-4"></div>
+      <div className="border-r-2 dark:border-zinc-800 border-zinc-500 h-full mt-4"></div>
     </div>
   );
 }

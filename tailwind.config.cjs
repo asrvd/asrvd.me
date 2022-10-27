@@ -19,4 +19,5 @@ module.exports = {
     require("@tailwindcss/typography"),
     require("tailwind-scrollbar")({ nocompatible: true }),
   ],
+  darkMode: "class",
 };
