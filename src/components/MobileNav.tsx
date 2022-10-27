@@ -11,7 +11,7 @@ import {
 } from "react-icons/fi";
 import { useRouter } from "next/router";
 import { useKBar } from "kbar";
-import { useState } from "react";
+import { useTheme } from "next-themes";
 
 const NavbarItems = [
   {
@@ -49,15 +49,10 @@ const NavbarItems = [
 export default function MobileNavBar({ path }: { path: string }) {
   const { query } = useKBar();
   const router = useRouter();
-  const [themeIcon, setThemeIcon] = useState("dark");
-
-  function handleThemeBtnCLick() {
-    // console.log("ok")
-    themeIcon === "dark" ? setThemeIcon("light") : setThemeIcon("dark");
-  }
+  const { theme, setTheme } = useTheme();
 
   return (
-    <div className="min-w-full min-h-full h-full flex overflow-x-scroll bg-zinc-800/50 justify-center items-center py-1 rounded-lg shadow-xl gap-4">
+    <div className="min-w-full min-h-full h-full flex overflow-x-scroll dark:bg-zinc-800/50 bg-zinc-500/50 justify-center items-center py-1 rounded-lg shadow-xl gap-4">
       <div className="flex justify-evenly gap-4 pl-24">
         {NavbarItems.map((item, index) => {
           return (
@@ -68,13 +63,13 @@ export default function MobileNavBar({ path }: { path: string }) {
               {path === item.slug ? (
                 <item.icon
                   size="2rem"
-                  className="text-zinc-100 rounded bg-zinc-700 hover:bg-zinc-700 py-2 cursor-pointer hover:scale-110 duration-300 ease-in-out shadow hover:shadow-xl"
+                  className="text-zinc-100 rounded dark:bg-zinc-700 bg-zinc-800 dark:hover:bg-zinc-700 hover:bg-zinc-800 py-2 cursor-pointer hover:scale-110 duration-300 ease-in-out shadow hover:shadow-xl"
                   onClick={() => router.push(item.slug)}
                 />
               ) : (
                 <item.icon
                   size="2rem"
-                  className="text-zinc-100 rounded bg-zinc-800 hover:bg-zinc-700 py-2 cursor-pointer hover:scale-110 duration-300 ease-in-out shadow hover:shadow-xl"
+                  className="text-zinc-100 rounded dark:bg-zinc-800 bg-zinc-700 dark:hover:bg-zinc-700 hover:bg-zinc-800 py-2 cursor-pointer hover:scale-110 duration-300 ease-in-out shadow hover:shadow-xl"
                   onClick={() => router.push(item.slug)}
                 />
               )}
@@ -84,15 +79,15 @@ export default function MobileNavBar({ path }: { path: string }) {
       </div>
       <div className="flex gap-4 pr-4">
         <button
-          className="w-full flex justify-center items-center bg-zinc-800 hover:bg-zinc-700 shadow hover:shadow-xl rounded hover:scale-110 duration-300 ease-in-out"
-          onClick={() => handleThemeBtnCLick()}
+          className="w-full flex justify-center items-center dark:bg-zinc-800 bg-zinc-700 dark:hover:bg-zinc-700 hover:bg-zinc-800 shadow hover:shadow-xl rounded hover:scale-110 duration-300 ease-in-out"
+          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
         >
-          <div className="p-2">
-            {themeIcon === "dark" ? <FiSun /> : <FiMoon />}
+          <div className="p-2 text-zinc-100">
+            {theme === "dark" ? <FiSun /> : <FiMoon />}
           </div>
         </button>
         <button
-          className="w-full flex justify-center items-center bg-zinc-800 hover:bg-zinc-700 shadow hover:shadow-xl rounded hover:scale-110 duration-300 ease-in-out"
+          className="w-full flex justify-center items-center dark:bg-zinc-800 bg-zinc-700 dark:hover:bg-zinc-700 hover:bg-zinc-800 shadow hover:shadow-xl rounded hover:scale-110 duration-300 ease-in-out"
           //   onClick={() => router.push(item.slug)}
           onClick={query.toggle}
         >

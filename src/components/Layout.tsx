@@ -30,7 +30,7 @@ export default function Layout({
         <title>
           asrvd{" "}
           {currentRoute?.slice(1).length > 1
-            ? `// ${currentRoute.slice(1)}`
+            ? `// ${currentRoute?.slice(1)}`
             : ``}
         </title>
         <meta name="description" content={description} />
