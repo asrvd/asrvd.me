@@ -28,10 +28,7 @@ export default function Layout({
       <Head>
         <link rel="icon" href={`https://fmj.asrvd.me/${emoji}`}></link>
         <title>
-          asrvd{" "}
-          {currentRoute?.slice(1).length > 1
-            ? `// ${currentRoute?.slice(1)}`
-            : ``}
+          {currentRoute === "/" ? "asrvd" : `asrvd // ${currentRoute.slice(1)}`}
         </title>
         <meta name="description" content={description} />
         <meta name="theme-color" content="#27272a" />

@@ -121,7 +121,7 @@ export default function GuestbookComponent() {
                 <p className="dark:text-zinc-200 text-zinc-800 text-base m-0 break-all">
                   {message.text}
                 </p>
-                <div className="flex justify-start items-center gap-4 dark:text-zinc-400 text-zinc-700 text-sm">
+                <div className="flex justify-start items-center gap-4 dark:text-zinc-400 text-zinc-700 text-xs">
                   <p className="m-0">by {message.authorName}</p>•
                   <p className="m-0">
                     on{" "}

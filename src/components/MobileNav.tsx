@@ -8,10 +8,12 @@ import {
   FiSun,
   FiCommand,
   FiMoon,
+  FiZap,
 } from "react-icons/fi";
 import { useRouter } from "next/router";
 import { useKBar } from "kbar";
 import { useTheme } from "next-themes";
+import { useState, useEffect } from "react";
 
 const NavbarItems = [
   {
@@ -44,12 +46,20 @@ const NavbarItems = [
     slug: "/spotify",
     icon: FiHeadphones,
   },
+  {
+    name: "Dashboard",
+    slug: "/dashboard",
+    icon: FiZap,
+  },
 ];
 
 export default function MobileNavBar({ path }: { path: string }) {
   const { query } = useKBar();
   const router = useRouter();
   const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
 
   return (
     <div className="min-w-full min-h-full h-full flex overflow-x-scroll dark:bg-zinc-800/50 bg-zinc-500/50 justify-center items-center py-1 rounded-lg shadow-xl gap-4">
@@ -78,14 +88,16 @@ export default function MobileNavBar({ path }: { path: string }) {
         })}
       </div>
       <div className="flex gap-4 pr-4">
-        <button
-          className="w-full flex justify-center items-center dark:bg-zinc-800 bg-zinc-700 dark:hover:bg-zinc-700 hover:bg-zinc-800 shadow hover:shadow-xl rounded hover:scale-110 duration-300 ease-in-out"
-          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-        >
-          <div className="p-2 text-zinc-100">
-            {theme === "dark" ? <FiSun /> : <FiMoon />}
-          </div>
-        </button>
+        {mounted && (
+          <button
+            className="w-full flex justify-center items-center dark:bg-zinc-800 bg-zinc-700 dark:hover:bg-zinc-700 hover:bg-zinc-800 shadow hover:shadow-xl rounded hover:scale-110 duration-300 ease-in-out"
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+          >
+            <div className="p-2 text-zinc-100">
+              {theme === "dark" ? <FiSun /> : <FiMoon />}
+            </div>
+          </button>
+        )}
         <button
           className="w-full flex justify-center items-center dark:bg-zinc-800 bg-zinc-700 dark:hover:bg-zinc-700 hover:bg-zinc-800 shadow hover:shadow-xl rounded hover:scale-110 duration-300 ease-in-out"
           //   onClick={() => router.push(item.slug)}

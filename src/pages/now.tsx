@@ -8,7 +8,7 @@ export default function Now(props: {
   metadata: { publish_date: string };
 }) {
   return (
-    <Layout emoji="🙀" description="the answer to wyd">
+    <Layout emoji="✨" description="the answer to wyd">
       <div className="w-full min-h-screen h-full p-8 flex flex-col items-center relative">
         <section className="flex flex-col w-full justify-between gap-6 mt-16 lg:mt-0 md:mt-0 prose">
           <div

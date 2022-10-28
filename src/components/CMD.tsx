@@ -42,6 +42,7 @@ function RenderResults() {
           </div>
         ) : (
           <ResultItem
+            key={item.id}
             action={item}
             active={active}
             currentRootActionId={rootActionId!}

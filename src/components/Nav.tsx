@@ -8,10 +8,11 @@ import {
   FiSun,
   FiMoon,
   FiCommand,
+  FiZap,
 } from "react-icons/fi";
 import { useRouter } from "next/router";
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useKBar } from "kbar";
 import { useTheme } from "next-themes";
 
@@ -51,12 +52,18 @@ const NavbarItems = [
     slug: "/spotify",
     icon: FiHeadphones,
   },
+  {
+    name: "Dashboard",
+    slug: "/dashboard",
+    icon: FiZap,
+  },
 ];
 
 export default function NavBar({ path }: { path: string }) {
   const router = useRouter();
   const { theme, setTheme } = useTheme();
   const { query } = useKBar();
+  const [mounted, setMounted] = useState(false);
   const [tooltipVisibility, setTooltipVisibility] = useState([
     false,
     false,
@@ -64,7 +71,12 @@ export default function NavBar({ path }: { path: string }) {
     false,
     false,
     false,
+    false,
   ]);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // function handleThemeBtnCLick() {
   //   // console.log("ok")
@@ -76,7 +88,7 @@ export default function NavBar({ path }: { path: string }) {
       <div className="flex flex-col gap-4">
         {NavbarItems.map((item, index) => {
           return (
-            <>
+            <div key={item.slug}>
               {path === item.slug ? (
                 <button
                   key={index}
@@ -128,18 +140,20 @@ export default function NavBar({ path }: { path: string }) {
                   )}
                 </button>
               )}
-            </>
+            </div>
           );
         })}
         <div className="flex flex-col gap-4">
-          <button
-            className="w-full flex justify-center items-center dark:bg-zinc-800 dark:hover:bg-zinc-700 bg-zinc-700 hover:bg-zinc-800 shadow hover:shadow-xl rounded hover:scale-110 duration-300 ease-in-out"
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-          >
-            <div className="p-2 text-zinc-100">
-              {theme === "dark" ? <FiSun /> : <FiMoon />}
-            </div>
-          </button>
+          {mounted === true && (
+            <button
+              className="w-full flex justify-center items-center dark:bg-zinc-800 dark:hover:bg-zinc-700 bg-zinc-700 hover:bg-zinc-800 shadow hover:shadow-xl rounded hover:scale-110 duration-300 ease-in-out"
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            >
+              <div className="p-2 text-zinc-100">
+                {theme === "dark" ? <FiSun /> : <FiMoon />}
+              </div>
+            </button>
+          )}
           <button
             className="w-full flex justify-center items-center dark:bg-zinc-800 dark:hover:bg-zinc-700 bg-zinc-700 hover:bg-zinc-800 shadow hover:shadow-xl rounded hover:scale-110 duration-300 ease-in-out"
             //   onClick={() => router.push(item.slug)}

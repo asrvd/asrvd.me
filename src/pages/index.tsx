@@ -12,7 +12,7 @@ import type { Blog, Repo } from "../lib/types";
 const Home = (props: { latestPosts: Blog[]; pinnedRepos: Repo[] }) => {
   return (
     <Layout
-      emoji="😺"
+      emoji="🎐"
       description="ashish//asrvd, student and web developer from India"
     >
       <div className="w-full h-full p-8 flex flex-col justify-center items-center relative">

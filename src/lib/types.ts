@@ -37,3 +37,33 @@ export type Repo = {
 };
 
 export type PinnedRepos = Repo[];
+
+export type GithubStats = {
+  stars: number;
+  repos: number;
+  followers: number;
+};
+
+export type LanyardResponse = {
+  discord_user: {
+    username: string;
+    discriminator: string;
+    avatar: string;
+    id: string;
+  };
+  discord_status: string;
+};
+
+export type LastFmUserResponse = {
+  url: string;
+  playcount: number;
+};
+
+export type UmamiResponse = {
+  pageviews: {
+    value: number;
+  };
+  uniques: {
+    value: number;
+  };
+};

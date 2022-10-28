@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 
 export default function About(props: { html: string }) {
   return (
-    <Layout emoji="😼" description="things you (maybe) want to know about me">
+    <Layout emoji="🍥" description="things you (maybe) want to know about me">
       <div className="w-full min-h-screen h-full p-8 flex flex-col items-center relative">
         <section className="flex flex-col w-full justify-between gap-6 mt-16 lg:mt-0 md:mt-0 prose mb-12">
         <div
