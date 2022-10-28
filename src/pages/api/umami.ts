@@ -17,20 +17,14 @@ type UmamiResponse = {
 };
 
 export default async function handler(req: NextRequest) {
-  try {
-    const resp = await getAnalytics();
-    const analytics = (await resp.json()) as UmamiResponse;
+  const resp = await getAnalytics();
+  const analytics = (await resp.json()) as UmamiResponse;
 
-    return new Response(JSON.stringify(analytics), {
-      status: 200,
-      headers: {
-        "Content-Type": "application/json",
-        "cache-control": "public, s-maxage=60, stale-while-revalidate=30",
-      },
-    });
-  } catch (e) {
-    console.log(e);
-
-    return new Response(JSON.stringify({}));
-  }
+  return new Response(JSON.stringify(analytics), {
+    status: 200,
+    headers: {
+      "Content-Type": "application/json",
+      "cache-control": "public, s-maxage=60, stale-while-revalidate=30",
+    },
+  });
 }
