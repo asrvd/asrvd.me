@@ -1,22 +1,20 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import type { NextRequest } from "next/server";
+import type { NextApiRequest, NextApiResponse } from "next";
 import { getAnalytics } from "../../lib/umami";
 
-export const config = {
-  runtime: "experimental-edge",
-};
-
-
-export default async function handler(req: NextRequest) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   const resp = await getAnalytics();
   const analytics = await resp.json();
 
-  return new Response(JSON.stringify(analytics), {
-    status: 200,
-    headers: {
-      "Content-Type": "application/json",
-      "cache-control": "public, s-maxage=60, stale-while-revalidate=30",
-    },
-  });
+  res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=60, stale-while-revalidate=30"
+  );
+  res.setHeader("Content-Type", "application/json");
+
+  return res.status(200).json(analytics);
 }
