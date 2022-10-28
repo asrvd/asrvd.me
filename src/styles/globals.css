@@ -21,3 +21,7 @@
     margin: 0 !important;
   }
 }
+
+.ball-transitions {
+  transition: opacity 0.2s, transform 0.1s;
+}

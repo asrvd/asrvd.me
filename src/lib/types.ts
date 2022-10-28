@@ -67,3 +67,8 @@ export type UmamiResponse = {
     value: number;
   };
 };
+
+export type WakatimeStats = {
+  text: string;
+  total_seconds: number;
+};

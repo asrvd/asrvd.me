@@ -15,6 +15,7 @@ export const serverSchema = z.object({
   LASTFM_API_KEY: z.string(),
   UMAMI_USERNAME: z.string(),
   UMAMI_PASSWORD: z.string(),
+  WAKATIME_API_KEY: z.string(),
 });
 
 /**
