@@ -7,18 +7,10 @@ export const config = {
   runtime: "experimental-edge",
 };
 
-type UmamiResponse = {
-  pageviews: {
-    value: number;
-  };
-  uniques: {
-    value: number;
-  };
-};
 
 export default async function handler(req: NextRequest) {
   const resp = await getAnalytics();
-  const analytics = (await resp.json()) as UmamiResponse;
+  const analytics = await resp.json();
 
   return new Response(JSON.stringify(analytics), {
     status: 200,

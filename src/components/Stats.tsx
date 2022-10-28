@@ -17,6 +17,7 @@ export default function Stats() {
     fetcher
   );
   const { data: umamiData } = useSWR<UmamiResponse>("/api/umami", fetcher);
+
   const statCards = [
     {
       title: "GitHub Stars",
