@@ -7,6 +7,7 @@ import {
   FiBookOpen,
   FiBookmark,
   FiCode,
+  FiZap,
 } from "react-icons/fi";
 
 export const actions = [
@@ -17,7 +18,7 @@ export const actions = [
     keywords: "home",
     perform: () => (window.location.pathname = "/"),
     section: "Navigation",
-    icon: FiHome({size: "1rem"}),
+    icon: FiHome({ size: "1rem" }),
   },
   {
     id: "about",
@@ -26,7 +27,7 @@ export const actions = [
     keywords: "about",
     perform: () => (window.location.pathname = "about"),
     section: "Navigation",
-    icon: FiUser({size: "1rem"}),
+    icon: FiUser({ size: "1rem" }),
   },
   {
     id: "links",
@@ -35,7 +36,7 @@ export const actions = [
     keywords: "email link discord twitter github",
     perform: () => (window.location.pathname = "links"),
     section: "Navigation",
-    icon: FiPaperclip({size: "1rem"}),
+    icon: FiPaperclip({ size: "1rem" }),
   },
   {
     id: "now",
@@ -44,9 +45,17 @@ export const actions = [
     keywords: "now",
     perform: () => (window.location.pathname = "now"),
     section: "Navigation",
-    icon: FiClock({size: "1rem"}),
+    icon: FiClock({ size: "1rem" }),
   },
-
+  {
+    id: "dashboard",
+    name: "Dashboard",
+    shortcut: ["d"],
+    keywords: "dashboard stars age stats",
+    perform: () => (window.location.pathname = "dashboard"),
+    section: "Navigation",
+    icon: FiZap({ size: "1rem" }),
+  },
   {
     id: "spotify",
     name: "Spotify Stats",
@@ -54,7 +63,7 @@ export const actions = [
     keywords: "spotify stats",
     perform: () => (window.location.pathname = "spotify"),
     section: "Navigation",
-    icon: FiHeadphones({size: "1rem"}),
+    icon: FiHeadphones({ size: "1rem" }),
   },
   {
     id: "guestbook",
@@ -63,7 +72,7 @@ export const actions = [
     keywords: "guestbook",
     perform: () => (window.location.pathname = "guestbook"),
     section: "Navigation",
-    icon: FiBookOpen({size: "1rem"}),
+    icon: FiBookOpen({ size: "1rem" }),
   },
   {
     id: "blog",
@@ -72,7 +81,7 @@ export const actions = [
     keywords: "writing words article",
     perform: () => window.open("https://dev.to/asheeshh", "_blank"),
     section: "External",
-    icon: FiBookmark({size: "1rem"}),
+    icon: FiBookmark({ size: "1rem" }),
   },
   {
     id: "projects",
@@ -81,6 +90,6 @@ export const actions = [
     keywords: "projects",
     perform: () => window.open("https://github.com/asrvd", "_blank"),
     section: "External",
-    icon: FiCode({size: "1rem"}),
+    icon: FiCode({ size: "1rem" }),
   },
 ];

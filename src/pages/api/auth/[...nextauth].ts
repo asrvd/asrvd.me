@@ -1,13 +1,12 @@
 import NextAuth, { type NextAuthOptions } from "next-auth";
 import DiscordProvider from "next-auth/providers/discord";
-
-// Prisma adapter for NextAuth, optional and can be removed
+import GithubProvider from "next-auth/providers/github";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { prisma } from "../../../server/db/client";
 import { env } from "../../../env/server.mjs";
 
 export const config = {
-  runtime: 'nodejs'
+  runtime: "nodejs",
 };
 
 export const authOptions: NextAuthOptions = {
@@ -20,7 +19,7 @@ export const authOptions: NextAuthOptions = {
       return session;
     },
   },
-  // Configure one or more authentication providers
+
   adapter: PrismaAdapter(prisma),
   providers: [
     DiscordProvider({
@@ -28,7 +27,10 @@ export const authOptions: NextAuthOptions = {
       clientSecret: env.DISCORD_CLIENT_SECRET,
       authorization: { params: { scope: "identify" } },
     }),
-    // ...add more providers here
+    GithubProvider({
+      clientId: env.GITHUB_CLIENT_ID,
+      clientSecret: env.GITHUB_CLIENT_SECRET,
+    }),
   ],
 };
 

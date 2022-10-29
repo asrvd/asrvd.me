@@ -1,14 +1,14 @@
 ---
-publish_date: 11 October, 2022
+publish_date: 29 October, 2022
 ---
 
 #Now
 #### The answer to "What are you upto these days?"
 
-I have been very busy lately and am finding it hard to focus on important things. I had been procrastinating since months on building this personal site but I finally decided to do it. So, by the time you read this page, I would have completed working on this site or maybe still working on it 🤔.
+After working on this personal site for like 3 weeks, its finally done now (I keep making small improvements though). I also wrote a [blog post](https://dev.to/asheeshh/i-made-a-full-stack-portfolio-site-using-nextjs-and-tailwind-366d) about it on dev.to and people actually liked it a lot. The [GitHub Repository](https://github.com/asrvd/asrvd.me) for the iste gained like 50 stars within a few days!
 
-I'm also trying to start learning Rust and get into Mobile App Development using React Native. But to be honest, I'm just procrastinating on these things. I hope I start doing them after finishing my personal site.
+Oh, and I decided that from now on, I'll also post my favorite song here in this page cus even that is related to **now**. The song I'm listening to a lot these days is [Oh Caroline by The 1975](https://open.spotify.com/track/14dJexYlvd3t3XAtD1pYW1?si=82758b3552bb4802).
 
-I've also started gaming after years (lol), and I like it. I'm playing a pc game called Valorant and it's amazing and a very good way for me to spend my free time (don't worry - I touch grass).
+Now, about other stuff, since Next.js v13 is here, I'm going to test it soon. Apart from this, I'm thinking of playing with [Astro](https://astro.build), so I may build some fun side projects using it soon. I have also started learning C as college has started and I need to work on DSA too.
 
-Lately, I haven't watched anything new as I spend that time playing Valorant. I'm going to start my college finally in November hopefully and this is the reason I've been busy these days.
+October has been a very busy month for me and I haven't got much time for anything else like playing games or even chatting online (*sighs*). This is it for this month ig, will update it in November now. Bye.

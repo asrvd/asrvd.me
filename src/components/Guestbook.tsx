@@ -3,7 +3,7 @@ import { trpc } from "../utils/trpc";
 import { z } from "zod";
 import { useSession } from "next-auth/react";
 import { useState } from "react";
-import { SiDiscord } from "react-icons/si";
+import { SiDiscord, SiGithub } from "react-icons/si";
 import { FiLogOut, FiSend } from "react-icons/fi";
 import { clsx } from "clsx";
 import { toast } from "react-hot-toast";
@@ -21,7 +21,7 @@ export default function GuestbookComponent() {
   const { data: session, status } = useSession();
   const { data: messages } = trpc.guestbook.getAllMessages.useQuery();
   const ctx = trpc.useContext();
-  
+
   const guestbook = trpc.guestbook.addMessage.useMutation({
     onMutate: () => {
       ctx.guestbook.getAllMessages.cancel();
@@ -97,18 +97,29 @@ export default function GuestbookComponent() {
             })}
           >
             <div>
-              <h3 className="dark:text-zinc-200 text-zinc-800 m-0">Leave a Message 👇</h3>
+              <h3 className="dark:text-zinc-200 text-zinc-800 m-0">
+                Leave a Message 👇
+              </h3>
               <p className="dark:text-zinc-300 text-zinc-700 m-0 text-sm">
                 You need to be signed in to post a message.
               </p>
             </div>
-            <button
-              className="max-w-max rounded-lg dark:bg-zinc-900 bg-zinc-100 dark:text-zinc-100 text-zinc-900 py-2 px-6 hover:shadow-xl duration-200 "
-              onClick={() => signIn("discord")}
-            >
-              <SiDiscord className="inline-block mr-2" />
-              Sign In
-            </button>
+            <div className="flex gap-2">
+              <button
+                className="max-w-max rounded-lg dark:bg-zinc-900 bg-zinc-100 dark:text-zinc-100 text-zinc-900 py-2 px-6 hover:shadow-xl duration-200 "
+                onClick={() => signIn("discord")}
+              >
+                <SiDiscord className="inline-block mr-2" />
+                Sign In
+              </button>
+              <button
+                className="max-w-max rounded-lg dark:bg-zinc-900 bg-zinc-100 dark:text-zinc-100 text-zinc-900 py-2 px-6 hover:shadow-xl duration-200 "
+                onClick={() => signIn("github")}
+              >
+                <SiGithub className="inline-block mr-2" />
+                Sign In
+              </button>
+            </div>
           </div>
         )}
         <div className="flex flex-col py-6">
@@ -118,7 +129,7 @@ export default function GuestbookComponent() {
                 className="flex flex-col gap-2 dark:hover:bg-zinc-800/40 hover:bg-zinc-300/40 hover:shadow-xl duration-200 p-4 rounded-lg"
                 key={message.id}
               >
-                <p className="dark:text-zinc-200 text-zinc-800 text-base m-0 break-all">
+                <p className="dark:text-zinc-200 text-zinc-800 text-sm lg:text-base md:text-base m-0 break-all">
                   {message.text}
                 </p>
                 <div className="flex justify-start items-center gap-4 dark:text-zinc-400 text-zinc-700 text-xs">
