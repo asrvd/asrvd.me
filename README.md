@@ -1,4 +1,4 @@
-> **NOTE** // If you're going to use this site as a template for yours, please read [this section](/#usage) first!
+> **NOTE** // If you're going to use this site as a template for yours, please read [this section](https://github.com/asrvd/asrvd.me#usage) first!
 
 ## asrvd.me
 My personal site made using the [t3 stack](https://create.t3.gg) -- a fullstack and fully typesafe personal site.
