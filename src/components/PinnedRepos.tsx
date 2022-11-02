@@ -1,5 +1,6 @@
 import type { PinnedRepos } from "../lib/types";
-import { FiStar, FiGitBranch, FiArrowRight } from "react-icons/fi";
+import { FiStar, FiArrowRight } from "react-icons/fi";
+import { VscRepoForked } from "react-icons/vsc";
 
 export default function PinnedRepos(props: { pinnedRepos: PinnedRepos }) {
   return (
@@ -34,7 +35,7 @@ export default function PinnedRepos(props: { pinnedRepos: PinnedRepos }) {
                   <p className="m-0">{repo.stars}</p>
                 </div>
                 <div className="flex dark:text-zinc-400 text-zinc-600 gap-2 text-base items-center font-semibold">
-                  <FiGitBranch />
+                  <VscRepoForked />
                   <p className="m-0">{repo.forks}</p>
                 </div>
               </div>

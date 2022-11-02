@@ -11,7 +11,7 @@ module.exports = {
     extend: {
       fontFamily: {
         "work-sans": ["Work Sans", "sans-serif"],
-        epilogue: ["Epilogue", "sans-serif"],
+        space: ["Space Grotesk", "sans-serif"],
       },
     },
   },

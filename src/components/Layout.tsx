@@ -74,7 +74,7 @@ export default function Layout({
         ></script>
       </Head>
       <KBarProvider actions={actions}>
-        <main className="flex selection:bg-zinc-200/30 flex-col overflow-x-hidden min-h-screen items-center bg-zinc-100 dark:bg-zinc-900 font-epilogue max-h-auto relative">
+        <main className="flex selection:bg-zinc-200/30 flex-col overflow-x-hidden min-h-screen items-center bg-zinc-100 dark:bg-zinc-900 font-space max-h-auto relative">
           <Palette />
           <div className="flex w-full h-full lg:w-[60%] md:w-2/3">
             <div className="w-[6%] fixed left-0 h-full z-50 hidden lg:block md:block">
