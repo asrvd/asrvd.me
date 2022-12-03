@@ -8,7 +8,7 @@ export default function TopTracks() {
   return (
     <div className="dark:bg-gradient-to-r dark:from-neutral-800 dark:to-zinc-800 bg-gradient-to-r from-neutral-200 to-zinc-200 rounded-lg shadow-xl p-4 flex flex-col justify-between gap-2">
       <div>
-        <h2 className="m-0 dark:text-zinc-200 text-zinc-900">Top Tracks</h2>
+        <h2 className="m-0 dark:text-zinc-200 text-zinc-900 font-semibold">Top Tracks</h2>
         <p className="m-0 dark:text-zinc-400 text-zinc-700 text-sm">according to last 4 weeks</p>
       </div>
       <div className="flex flex-col ">

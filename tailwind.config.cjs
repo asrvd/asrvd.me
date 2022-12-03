@@ -10,8 +10,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        "work-sans": ["Work Sans", "sans-serif"],
-        space: ["Space Grotesk", "sans-serif"],
+        clash: ["Clash Grotesk", "sans-serif"],
       },
     },
   },

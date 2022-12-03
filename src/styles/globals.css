@@ -1,4 +1,4 @@
-@import url(https://fonts.bunny.net/css?family=space-grotesk:300,400,500,600,700);
+@import url(https://api.fontshare.com/v2/css?f[]=clash-grotesk@200,700,400,600,300,500&display=swap);
 
 @tailwind base;
 @tailwind components;

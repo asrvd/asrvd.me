@@ -16,7 +16,7 @@ import React from "react";
 export default function Palette() {
   return (
     <KBarPortal>
-      <KBarPositioner className="z-50 select-none backdrop-blur bg-zinc-800/30 font-space overflow-hidden">
+      <KBarPositioner className="z-50 select-none backdrop-blur bg-zinc-800/30 font-clash overflow-hidden">
         <KBarAnimator className="w-[90%] lg:w-[44%] md:w-2/3 overflow-hidden text-lg text-white bg-zinc-100 rounded-lg dark:bg-zinc-900 min-w-500 shadow-xl kbar">
           <KBarSearch className="w-full p-3 text-sm text-gray-900 bg-gray-100 rounded-lg outline-none dark:bg-zinc-900 dark:text-zinc-200" />
           <RenderResults />

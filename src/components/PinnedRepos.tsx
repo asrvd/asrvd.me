@@ -22,7 +22,7 @@ export default function PinnedRepos(props: { pinnedRepos: PinnedRepos }) {
           >
             <div className="flex flex-col cursor-pointer justify-between h-full dark:bg-zinc-800 bg-zinc-200 p-4 rounded-lg ">
               <div>
-                <h3 className="dark:text-zinc-200 text-zinc-800 m-0 mb-6 text-lg font-bold w-full tracking-tight leading-none">
+                <h3 className="dark:text-zinc-200 text-zinc-800 m-0 mb-6 text-lg font-semibold w-full tracking-tight leading-none">
                   {repo.name}
                 </h3>
                 <p className="dark:text-zinc-300 text-zinc-700 m-0 mb-6 text-sm w-full tracking-tight">

@@ -21,7 +21,7 @@ export default function RecentBlogs(props: { recentBlogs: RecentBlogs }) {
           >
             <div className="flex flex-col cursor-pointer justify-between gap-4 p-4 dark:bg-zinc-800 bg-zinc-200 rounded-lg h-full">
               <div>
-                <h3 className="dark:text-zinc-300 text-zinc-800 mb-6 text-lg font-bold w-full tracking-tight m-0 no-underline">
+                <h3 className="dark:text-zinc-300 text-zinc-800 mb-6 text-lg font-semibold w-full tracking-tight m-0 no-underline">
                   {post.title}
                 </h3>
               </div>
