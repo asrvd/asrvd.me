@@ -18,7 +18,7 @@ const Home = (props: { latestPosts: Blog[]; pinnedRepos: Repo[] }) => {
       <div className="w-full h-full p-8 flex flex-col justify-center items-center relative">
         <section className="flex flex-col-reverse lg:flex-row md:flex-row w-full justify-between items-start mb-20 mt-16 lg:mt-0 md:mt-0 gap-4 lg:gap-14 md:gap-8 prose">
           <div className="leading-none">
-            <h2 className="dark:text-zinc-200 text-zinc-900 text-[2.5rem] m-0">
+            <h2 className="dark:text-zinc-200 text-zinc-900 text-[2.5rem] m-0 font-extrabold">
               Ashish
             </h2>
             <p className="dark:text-zinc-300 text-zinc-800 mb-4 m-0">

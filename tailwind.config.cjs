@@ -10,8 +10,20 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        clash: ["Clash Grotesk", "sans-serif"],
+        clash: ["Satoshi", "sans-serif"],
       },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            "code::before": {
+              content: "",
+            },
+            "code::after": {
+              content: "",
+            },
+          },
+        },
+      }),
     },
   },
   plugins: [

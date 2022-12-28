@@ -10,7 +10,7 @@ import Palette from "./CMD";
 import { actions } from "../lib/actions";
 import { Toaster } from "react-hot-toast";
 import { useEffect, useRef } from "react";
-import { loadCursor } from "../lib/cursor";
+// import { loadCursor } from "../lib/cursor";
 
 export default function Layout({
   children,
@@ -24,14 +24,14 @@ export default function Layout({
   image?: string;
 }) {
   const currentRoute = useRouter().pathname;
-  const ballRef = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    if (typeof window === "undefined" || !ballRef.current) {
-      return;
-    }
+  // const ballRef = useRef<HTMLDivElement>(null);
+  // useEffect(() => {
+  //   if (typeof window === "undefined" || !ballRef.current) {
+  //     return;
+  //   }
 
-    return loadCursor(ballRef.current);
-  }, []);
+  //   return loadCursor(ballRef.current);
+  // }, []);
 
   return (
     <div>
@@ -87,10 +87,10 @@ export default function Layout({
           </div>
         </main>
       </KBarProvider>
-      <div
+      {/* <div
         ref={ballRef}
         className="ball-transitions pointer-events-none fixed z-[1000] h-6 w-6 rounded-full bg-zinc-800/20 dark:bg-zinc-200/20 shadow-md duration-200"
-      />
+      /> */}
       <Toaster
         toastOptions={{
           style: {
