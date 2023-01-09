@@ -62,8 +62,14 @@ export default function Layout({
           }`}
         />
         <meta property="twitter:description" content={description} />
-        <meta property="og:image" content="/img/og-image.png" />
-        <meta property="twitter:image" content="/img/og-image.png" />
+        <meta
+          property="og:image"
+          content="https://user-images.githubusercontent.com/68690233/211317069-9fdd4a02-78c9-4215-a397-748025e968de.png"
+        />
+        <meta
+          property="twitter:image"
+          content="https://user-images.githubusercontent.com/68690233/211317069-9fdd4a02-78c9-4215-a397-748025e968de.png"
+        />
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:site" content="@asheeshh_" />
         <script
