@@ -24,9 +24,10 @@ export const guestbookRouter = t.router({
       try {
         await ctx.prisma.message.create({
           data: {
+            email: ctx?.session?.user?.email as string,
             authorName: ctx?.session?.user?.name as string,
             text: input.text,
-            authorId: ctx?.session?.user?.id,
+            
           },
         });
       } catch (error) {

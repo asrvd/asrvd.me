@@ -12,7 +12,7 @@
   "dependencies": {
     "@formkit/auto-animate": "1.0.0-beta.3",
     "@next-auth/prisma-adapter": "^1.0.4",
-    "@prisma/client": "^4.4.0",
+    "@prisma/client": "^4.16.2",
     "@tanstack/react-query": "^4.10.0",
     "@trpc/client": "10.0.0-proxy-beta.15",
     "@trpc/next": "10.0.0-proxy-beta.15",
@@ -48,7 +48,7 @@
     "postcss": "^8.4.14",
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.13",
-    "prisma": "^4.4.0",
+    "prisma": "^4.16.2",
     "tailwind-scrollbar": "2.1.0-preview.0",
     "tailwindcss": "^3.1.6",
     "typescript": "^4.8.4"
